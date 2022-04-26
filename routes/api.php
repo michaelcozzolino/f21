@@ -21,11 +21,11 @@ Route::post('/register', [AuthController::class, 'signUp'])->name('users.signUp'
 
 Route::post('/login', [AuthController::class, 'signIn'])->name('users.signIn');
 
-Route::put('/users', [AuthController::class, 'update'])->name('users.update');
-
-Route::post('/logout', [AuthController::class, 'signOut']);
-
 Route::middleware('auth:sanctum')->group(function () {
+
+    Route::post('/logout', [AuthController::class, 'signOut']);
+
+    Route::put('/users', [AuthController::class, 'update'])->name('users.update');
 
     Route::post('/fields', [FieldsController::class, 'store'])->name('fields.store');
 
