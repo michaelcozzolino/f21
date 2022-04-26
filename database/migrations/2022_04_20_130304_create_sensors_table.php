@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('sensors', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name', 101);
             $table->double('lat')->nullable();
             $table->double('long')->nullable();
             $table->enum('status', ['connected', 'disconnected', 'connecting'])->default('connecting');
